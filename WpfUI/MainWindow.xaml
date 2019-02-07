@@ -4,9 +4,90 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
-        mc:Ignorable="d"
+        mc:Ignorable="d" FontSize="18" FontFamily="Segoe UI Light"
         Title="MainWindow" Height="350" Width="525">
+   
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" 
+                   FontSize="20" 
+                   Grid.ColumnSpan="3" 
+                   Text="Hi Worldy Worldy!" 
+                   FontFamily="Showcard Gothic"
+                   Margin="0,0,0,10"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" 
+                   Text="Name"
+                   Margin="0,0,10,0"/>
+        <TextBox Grid.Column="2" Grid.Row="2" 
+                 Width="150" 
+                 x:Name="firstNameText"></TextBox>
+        <ComboBox x:Name="myComboBox"
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  Margin="0, 10, 0, 0">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="https://data.whicdn.com/images/326358602/large.jpg" Height="20" Width="20"/>
+                        <TextBlock Text="{Binding FirstName}" />
+                        <TextBlock Text=" " />
+                        <TextBlock Text="{Binding LastName}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="submitButton" Content="Run Me!" 
+                Grid.Column="1"
+                Grid.Row="4"
+                Margin="10"
+                Grid.ColumnSpan="2" Click="submitButton_Click">
+        </Button>
+        <!--<Image Grid.Row="1"
+               Grid.Column="4"
+               Grid.RowSpan="6"
+               Source="large.jpg"></Image>-->
+        <ScrollViewer Grid.Row="1"
+                      Grid.Column="4"
+                      Grid.RowSpan="6">
+            <StackPanel Orientation="Vertical" >
+                <Image MaxHeight="100" MaxWidth="200" Source="https://data.whicdn.com/images/326358602/large.jpg"/>
+                <Image MaxHeight="100" MaxWidth="200" Source="https://data.whicdn.com/images/326358602/large.jpg"/>
+                <Image MaxHeight="100" MaxWidth="200" Source="https://data.whicdn.com/images/326358602/large.jpg"/>
+                <Image MaxHeight="100" MaxWidth="200" Source="https://data.whicdn.com/images/326358602/large.jpg"/>
+                <Image MaxHeight="100" MaxWidth="200" Source="https://data.whicdn.com/images/326358602/large.jpg"/>
+            </StackPanel>
+        </ScrollViewer>
+        <!--<WrapPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Grid.RowSpan="6">
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+            <Image MaxHeight="100" MaxWidth="200" Source="large.jpg"></Image>
+        </WrapPanel>-->
         
     </Grid>
 </Window>
